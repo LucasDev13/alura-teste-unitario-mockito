@@ -1,7 +1,8 @@
 INSERT INTO `users` (`user_id`, `email`, `enabled`, `username`, `role`, `password`) VALUES
-(1,	'fulano@gmail.com',	1,	'fulano',	'USER',	'$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i'),
-(2,	'ciclano@gmail.com',	1,	'ciclano',	'USER',	'$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i'),
-(3,	'beltrano@gmail.com',	1,	'beltrano',	'USER',	'$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i');
+(1,	'fulano@gmail.com', 1, 'fulano', 'USER', '$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i'),
+(2,	'ciclano@gmail.com', 1, 'ciclano', 'USER', '$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i'),
+(3,	'beltrano@gmail.com', 1, 'beltrano', 'USER', '$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i'),
+(4, 'lucas@gmail.com', 1, 'Lucas', 'USER', '$2a$10$8MeF8YTUTv22DVthkhOs3.WGT4W1Wp1xRXcRxTM12MgDzRviDpw7i');
 
 INSERT INTO `leilao` (`id`, `data_abertura`, `nome`, `valor_inicial`, `usuario_user_id`) VALUES
 (1,	'2020-08-03',	'Tablet Xpto 3',	5.00,	1),
