@@ -14,28 +14,40 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 class FinalizarLeilaoServiceTest {
-
     private FinalizarLeilaoService service;
-
     @Mock
     private LeilaoDao leilaoDao;
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         MockitoAnnotations.initMocks(this);
         this.service = new FinalizarLeilaoService(leilaoDao);
     }
 
     @Test
-    void deveriaFinalizarUmLeilao(){
-//        Passar uma lista com os leilões
-        List<Leilao> leilaos = leiloes();
+    void deveriaFinalizarUmLeilao() {
+//      Passar uma lista com os leilões
+        List<Leilao> leiloes = leiloes();
+        when(leilaoDao.buscarLeiloesExpirados()).thenReturn(leiloes);
+
         service.finalizarLeiloesExpirados();
+
+//      pega o leilao na primeira posição.
+        Leilao leilao = leiloes.get(0);
+
+        assertTrue(leilao.isFechado());
+        assertEquals(new BigDecimal("900"), leilao.getLanceVencedor().getValor());
+        verify(leilaoDao).salvar(leilao);
     }
 
-//    Informações de entrada para o teste
-    private List<Leilao> leiloes(){
+    //    Informações de entrada para o teste
+    private List<Leilao> leiloes() {
         List<Leilao> lista = new ArrayList<>();
         Leilao leilao = new Leilao("Celular",
                 new BigDecimal("500"),
